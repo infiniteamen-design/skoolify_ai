@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skoolify AI</title>
+
+  <script src="geminiService.js" defer></script>
+  <script src="storage.js" defer></script>
+  <script src="app.js" defer></script>
+
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .tab { display: none; margin-top: 20px; }
+    #tabs button { margin-right: 10px; padding: 5px 10px; cursor: pointer; }
+    input { margin: 5px; padding: 5px; }
+    .section { margin-top: 20px; }
+    .result { margin-top: 10px; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <h1>Skoolify AI</h1>
+
+  <div id="tabs">
+    <button onclick="showTab('chat')">Chat</button>
+    <button onclick="showTab('videos')">Videos</button>
+    <button onclick="showTab('notes')">Notes</button>
+    <button onclick="showTab('study')">Study</button>
+    <button onclick="showTab('quiz')">Quiz</button>
+  </div>
+
+  <div id="chatTab" class="tab section">
+    <input id="chatInput" placeholder="Ask a question" size="50">
+    <button onclick="handleChat()">Send</button>
+    <div id="chatHistory" class="result"></div>
+  </div>
+
+  <div id="videosTab" class="tab section">
+    <input id="videoTopic" placeholder="Topic">
+    <input id="videoClass" placeholder="Class">
+    <input id="videoExtra" placeholder="Extra Instructions">
+    <button onclick="handleVideos()">Find Videos</button>
+    <div id="videoResults" class="result"></div>
+  </div>
+
+  <div id="notesTab" class="tab section">
+    <input id="noteTopic" placeholder="Topic">
+    <input id="noteClass" placeholder="Class">
+    <input id="noteExtra" placeholder="Extra Instructions">
+    <button onclick="handleNotes()">Generate Notes</button>
+    <div id="noteResults" class="result"></div>
+  </div>
+
+  <div id="studyTab" class="tab section">
+    <div id="studyResults" class="result">Your study materials will appear here.</div>
+  </div>
+
+  <div id="quizTab" class="tab section">
+    <input id="quizTopic" placeholder="Topic">
+    <input id="quizClass" placeholder="Class">
+    <input id="quizLevel" placeholder="Level">
+    <input id="quizExtra" placeholder="Extra Instructions">
+    <button onclick="handleQuiz()">Generate Quiz</button>
+    <div id="quizResults" class="result"></div>
+  </div>
+
+</body>
+</html>
